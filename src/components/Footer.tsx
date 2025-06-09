@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  GraduationCap,
+  Home,
   Mail,
   Phone,
   MapPin,
@@ -12,42 +12,42 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-muted/50 border-t">
+    <footer className="bg-gray-50 border-t border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <GraduationCap className="h-6 w-6 text-primary" />
-              <span className="font-bold text-lg">StudyAbroad Pro</span>
+              <Home className="h-6 w-6 text-blue-600" />
+              <span className="font-bold text-lg">MyWebsite</span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Your trusted partner in international education. We help students
-              achieve their dreams of studying abroad with expert guidance and
-              personalized support.
+            <p className="text-sm text-gray-600">
+              Your trusted partner in achieving success. We help people achieve
+              their dreams with expert guidance and personalized support across
+              America, Canada, and beyond.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-gray-400 hover:text-blue-600 transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-gray-400 hover:text-red-600 transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-gray-400 hover:text-blue-600 transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-gray-400 hover:text-red-600 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -56,29 +56,23 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Quick Links</h3>
+            <h3 className="font-semibold text-gray-900">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
               <Link
                 to="/"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
                 Home
               </Link>
               <Link
-                to="/services"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                Services
-              </Link>
-              <Link
                 to="/about"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-gray-600 hover:text-red-600 transition-colors"
               >
                 About Us
               </Link>
               <Link
                 to="/contact"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
                 Contact
               </Link>
@@ -87,57 +81,60 @@ const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Our Services</h3>
+            <h3 className="font-semibold text-gray-900">Our Services</h3>
             <nav className="flex flex-col space-y-2">
               <a
                 href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-gray-600 hover:text-red-600 transition-colors"
               >
-                University Selection
+                Expert Guidance
               </a>
               <a
                 href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
-                Application Assistance
+                Success Planning
               </a>
               <a
                 href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-gray-600 hover:text-red-600 transition-colors"
               >
-                Visa Guidance
+                Personal Support
               </a>
               <a
                 href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
-                Scholarship Help
+                Goal Achievement
               </a>
             </nav>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Contact Info</h3>
+            <h3 className="font-semibold text-gray-900">Contact Info</h3>
             <div className="space-y-2">
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                <span>123 Education Street, City, Country</span>
+              <div className="flex items-center space-x-2 text-sm text-gray-600">
+                <MapPin className="h-4 w-4 text-blue-600" />
+                <span>123 Business Street, City, Country</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4" />
+              <div className="flex items-center space-x-2 text-sm text-gray-600">
+                <Phone className="h-4 w-4 text-red-600" />
                 <span>+1 (555) 123-4567</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4" />
-                <span>info@studyabroadpro.com</span>
+              <div className="flex items-center space-x-2 text-sm text-gray-600">
+                <Mail className="h-4 w-4 text-blue-600" />
+                <span>info@mywebsite.com</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 StudyAbroad Pro. All rights reserved.</p>
+        <div className="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-600">
+          <p>
+            &copy; 2024 MyWebsite. All rights reserved. Proudly serving the USA,
+            Canada, and beyond.
+          </p>
         </div>
       </div>
     </footer>
