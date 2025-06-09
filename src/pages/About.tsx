@@ -151,12 +151,22 @@ const About = () => {
               Trusted by 500+ Students
             </Badge>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+<<<<<<< HEAD
               About StudyAbroad Pro
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               We are passionate about helping students achieve their dreams of
               studying abroad. With expert guidance and personalized support, we
               make international education accessible to everyone.
+=======
+              USA, Canada & Australia Specialists
+            </h1>
+            <p className="text-xl text-gray-600 mb-8">
+              We are passionate about helping students achieve their dreams of
+              studying in the top three English-speaking destinations. With
+              specialized expertise in USA, Canada, and Australia, we provide
+              focused guidance for maximum success.
+>>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
             </p>
           </div>
         </div>
@@ -206,6 +216,7 @@ const About = () => {
                 for students pursuing education in these top three
                 English-speaking destinations.
               </p>
+<<<<<<< HEAD
               <p className="text-lg text-gray-600 mb-6">
                 To empower students worldwide by providing expert guidance and
                 comprehensive support for their international education journey.
@@ -219,6 +230,14 @@ const About = () => {
                   "Provide personalized, expert guidance",
                   "Ensure transparent and ethical practices",
                   "Build long-term relationships with students",
+=======
+              <ul className="space-y-3">
+                {[
+                  "Specialize in USA, Canada & Australia admissions",
+                  "Provide country-specific expert guidance",
+                  "Ensure transparent and ethical practices",
+                  "Maximize success through focused expertise",
+>>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
                 ].map((item, index) => (
                   <li key={index} className="flex items-center space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-500" />

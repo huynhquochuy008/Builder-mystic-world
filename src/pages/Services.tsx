@@ -28,6 +28,7 @@ const Services = () => {
       icon: <Globe className="h-12 w-12 text-primary" />,
       title: "University Selection",
       description:
+<<<<<<< HEAD
         "Find the perfect university that matches your academic goals, budget, and career aspirations.",
       features: [
         "Personalized university recommendations",
@@ -35,6 +36,15 @@ const Services = () => {
         "Country-specific advice",
         "Ranking and reputation analysis",
         "Budget planning assistance",
+=======
+        "Find the perfect university in USA, Canada, or Australia that matches your academic goals and career aspirations.",
+      features: [
+        "Personalized recommendations for US, Canadian & Australian universities",
+        "Program matching across all three countries",
+        "Country-specific admission requirements",
+        "Ranking analysis and reputation insights",
+        "Cost comparison between countries",
+>>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
       ],
       price: "From $199",
     },
@@ -56,6 +66,7 @@ const Services = () => {
       icon: <Users className="h-12 w-12 text-primary" />,
       title: "Visa Guidance",
       description:
+<<<<<<< HEAD
         "Step-by-step visa application support to ensure smooth approval process.",
       features: [
         "Visa application assistance",
@@ -63,6 +74,15 @@ const Services = () => {
         "Interview preparation",
         "Financial documentation help",
         "Visa tracking support",
+=======
+        "Expert visa support for F-1 (USA), Study Permit (Canada), and Student Visa (Australia).",
+      features: [
+        "Country-specific visa application assistance",
+        "F-1, Study Permit & Student Visa expertise",
+        "SEVIS, GIC & health insurance guidance",
+        "Interview preparation for US consulates",
+        "Post-graduation work permit advice",
+>>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
       ],
       price: "From $249",
     },
@@ -189,11 +209,20 @@ const Services = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+<<<<<<< HEAD
               Comprehensive Study Abroad Services
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               From university selection to post-arrival support, we provide
               end-to-end assistance for your international education journey.
+=======
+              USA, Canada & Australia Study Services
+            </h1>
+            <p className="text-xl text-gray-600 mb-8">
+              Specialized consulting services for the top three English-speaking
+              destinations. Expert guidance for universities in United States,
+              Canada, and Australia.
+>>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
             </p>
           </div>
         </div>

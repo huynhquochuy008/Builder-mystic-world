@@ -145,8 +145,13 @@ const Contact = () => {
               Get in Touch
             </h1>
             <p className="text-xl text-gray-600 mb-8">
+<<<<<<< HEAD
               Ready to start your study abroad journey? Contact our expert
               counselors for personalized guidance and support.
+=======
+              Ready to study in USA, Canada, or Australia? Contact our
+              specialized counselors for expert guidance and support.
+>>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
             </p>
           </div>
         </div>
@@ -254,6 +259,7 @@ const Contact = () => {
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
+<<<<<<< HEAD
                         <SelectItem value="university-selection">
                           University Selection
                         </SelectItem>
@@ -268,6 +274,25 @@ const Contact = () => {
                         </SelectItem>
                         <SelectItem value="test-preparation">
                           Test Preparation
+=======
+                        <SelectItem value="usa-universities">
+                          USA University Selection
+                        </SelectItem>
+                        <SelectItem value="canada-universities">
+                          Canada University Selection
+                        </SelectItem>
+                        <SelectItem value="australia-universities">
+                          Australia University Selection
+                        </SelectItem>
+                        <SelectItem value="usa-visa">
+                          USA F-1 Visa Guidance
+                        </SelectItem>
+                        <SelectItem value="canada-visa">
+                          Canada Study Permit
+                        </SelectItem>
+                        <SelectItem value="australia-visa">
+                          Australia Student Visa
+>>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
                         </SelectItem>
                         <SelectItem value="complete-package">
                           Complete Package
