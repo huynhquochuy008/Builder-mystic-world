@@ -53,43 +53,25 @@ const Index = () => {
   const testimonials = [
     {
       name: "Sarah Johnson",
-<<<<<<< HEAD
       role: "Master's Student at MIT",
       content:
         "StudyAbroad Pro made my dream of studying at MIT come true. Their guidance was invaluable throughout the entire process.",
-=======
-      role: "Master's Student at MIT, USA",
-      content:
-        "StudyAbroad Pro's expertise in US admissions made my dream of studying at MIT come true. Their guidance was invaluable throughout the entire process.",
->>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
       avatar: "/placeholder.svg",
       rating: 5,
     },
     {
       name: "Michael Chen",
-<<<<<<< HEAD
       role: "PhD Student at Oxford",
       content:
         "The visa guidance and scholarship assistance helped me secure funding for my PhD at Oxford. Highly recommended!",
-=======
-      role: "PhD Student at University of Toronto, Canada",
-      content:
-        "The visa guidance and scholarship assistance helped me secure funding for my PhD in Canada. Their knowledge of Canadian immigration was exceptional!",
->>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
       avatar: "/placeholder.svg",
       rating: 5,
     },
     {
       name: "Emily Rodriguez",
-<<<<<<< HEAD
       role: "Undergraduate at Stanford",
       content:
         "From university selection to application essays, they supported me every step of the way. Now I'm studying at Stanford!",
-=======
-      role: "Undergraduate at University of Melbourne, Australia",
-      content:
-        "From university selection to application essays, they supported me every step of the way. Now I'm studying in beautiful Melbourne!",
->>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
       avatar: "/placeholder.svg",
       rating: 5,
     },
@@ -97,15 +79,9 @@ const Index = () => {
 
   const stats = [
     { number: "500+", label: "Students Placed" },
-<<<<<<< HEAD
     { number: "50+", label: "Partner Universities" },
     { number: "95%", label: "Success Rate" },
     { number: "15+", label: "Countries" },
-=======
-    { number: "75+", label: "Partner Universities" },
-    { number: "95%", label: "Success Rate" },
-    { number: "3", label: "Top Countries" },
->>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
   ];
 
   const countries = [
@@ -128,7 +104,6 @@ const Index = () => {
               #1 Study Abroad Consultant
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-<<<<<<< HEAD
               Your Gateway to
               <span className="text-primary"> Global Education</span>
             </h1>
@@ -136,15 +111,6 @@ const Index = () => {
               Expert guidance to help you study abroad at top universities
               worldwide. From application to visa, we're with you every step of
               the way.
-=======
-              Study in
-              <span className="text-primary">USA, Canada & Australia</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Expert guidance to help you study in the top three
-              English-speaking destinations. Specialized consulting for
-              universities in United States, Canada, and Australia.
->>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
@@ -218,7 +184,6 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-<<<<<<< HEAD
               Study in Top Destinations
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -236,37 +201,11 @@ const Index = () => {
                 <MapPin className="h-4 w-4 text-primary" />
                 <span className="font-medium">{country}</span>
               </div>
-=======
-              Our Specialized Destinations
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Expert consulting for the top three English-speaking study
-              destinations with the highest student satisfaction.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {countries.map((country, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-lg transition-shadow"
-              >
-                <CardContent className="pt-6">
-                  <div className="text-4xl mb-4">{country.flag}</div>
-                  <h3 className="text-xl font-semibold mb-2">{country.name}</h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    Top Universities:
-                  </p>
-                  <p className="text-sm font-medium text-primary">
-                    {country.universities}
-                  </p>
-                </CardContent>
-              </Card>
->>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
             ))}
           </div>
         </div>
       </section>
+
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
