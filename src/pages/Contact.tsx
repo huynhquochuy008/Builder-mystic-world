@@ -60,26 +60,26 @@ function Contact() {
 
   const contactInfo = [
     {
-      icon: <MapPin className="h-6 w-6 text-primary" />,
+      icon: <MapPin className="h-6 w-6 text-blue-600" />,
       title: "Office Address",
       details: [
         "123 Business Street",
         "Suite 100",
         "City, State 12345",
-        "Country",
+        "United States & Canada",
       ],
     },
     {
-      icon: <Phone className="h-6 w-6 text-primary" />,
+      icon: <Phone className="h-6 w-6 text-red-600" />,
       title: "Phone Numbers",
       details: [
-        "+1 (555) 123-4567",
-        "+1 (555) 987-6543",
+        "+1 (555) 123-4567 (US)",
+        "+1 (555) 987-6543 (CA)",
         "WhatsApp: +1 (555) 111-2233",
       ],
     },
     {
-      icon: <Mail className="h-6 w-6 text-primary" />,
+      icon: <Mail className="h-6 w-6 text-blue-600" />,
       title: "Email Addresses",
       details: [
         "info@mywebsite.com",
@@ -88,7 +88,7 @@ function Contact() {
       ],
     },
     {
-      icon: <Clock className="h-6 w-6 text-primary" />,
+      icon: <Clock className="h-6 w-6 text-red-600" />,
       title: "Office Hours",
       details: [
         "Monday - Friday: 9:00 AM - 6:00 PM",
@@ -102,29 +102,30 @@ function Contact() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-red-50 py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Get in Touch
+              Get in <span className="text-blue-600">Touch</span>{" "}
+              <span className="text-red-600">Today</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               Ready to start your journey? Contact us for personalized guidance
-              and support.
+              and support across America, Canada, and beyond.
             </p>
           </div>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card>
+            <Card className="border-gray-200">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Send className="h-5 w-5 text-primary" />
+                  <Send className="h-5 w-5 text-blue-600" />
                   <span>Send us a Message</span>
                 </CardTitle>
                 <CardDescription>
@@ -144,6 +145,7 @@ function Contact() {
                           handleInputChange("firstName", e.target.value)
                         }
                         required
+                        className="border-gray-300 focus:border-blue-500"
                       />
                     </div>
                     <div className="space-y-2">
@@ -155,6 +157,7 @@ function Contact() {
                           handleInputChange("lastName", e.target.value)
                         }
                         required
+                        className="border-gray-300 focus:border-red-500"
                       />
                     </div>
                   </div>
@@ -169,6 +172,7 @@ function Contact() {
                         handleInputChange("email", e.target.value)
                       }
                       required
+                      className="border-gray-300 focus:border-blue-500"
                     />
                   </div>
 
@@ -181,6 +185,7 @@ function Contact() {
                       onChange={(e) =>
                         handleInputChange("phone", e.target.value)
                       }
+                      className="border-gray-300 focus:border-red-500"
                     />
                   </div>
 
@@ -195,6 +200,7 @@ function Contact() {
                       }
                       rows={4}
                       required
+                      className="border-gray-300 focus:border-blue-500"
                     />
                   </div>
 
@@ -211,7 +217,10 @@ function Contact() {
                     </Label>
                   </div>
 
-                  <Button type="submit" className="w-full">
+                  <Button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                  >
                     Send Message
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
@@ -227,7 +236,10 @@ function Contact() {
                 </h2>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
-                    <Card key={index}>
+                    <Card
+                      key={index}
+                      className="border-gray-200 hover:shadow-md transition-shadow"
+                    >
                       <CardContent className="pt-6">
                         <div className="flex items-start space-x-3">
                           {info.icon}
@@ -252,23 +264,32 @@ function Contact() {
               </div>
 
               {/* Quick Actions */}
-              <Card>
+              <Card className="border-gray-200">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
-                    <MessageCircle className="h-5 w-5 text-primary" />
+                    <MessageCircle className="h-5 w-5 text-red-600" />
                     <span>Quick Actions</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start border-blue-200 text-blue-600 hover:bg-blue-50"
+                  >
                     <MessageCircle className="mr-2 h-4 w-4" />
                     Live Chat Support
                   </Button>
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start border-red-200 text-red-600 hover:bg-red-50"
+                  >
                     <Phone className="mr-2 h-4 w-4" />
                     Schedule a Call
                   </Button>
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start border-blue-200 text-blue-600 hover:bg-blue-50"
+                  >
                     <Mail className="mr-2 h-4 w-4" />
                     Email Support
                   </Button>
@@ -280,7 +301,7 @@ function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -293,55 +314,82 @@ function Contact() {
             </div>
 
             <div className="space-y-6">
-              <Card>
+              <Card className="border-gray-200">
                 <CardContent className="pt-6">
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-2">
                         How quickly do you respond to inquiries?
                       </h3>
                       <p className="text-gray-600">
                         We typically respond to all inquiries within 24 hours
-                        during business days.
+                        during business days across US and Canadian time zones.
                       </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-gray-200">
                 <CardContent className="pt-6">
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-red-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-2">
                         Do you offer free consultations?
                       </h3>
                       <p className="text-gray-600">
                         Yes, we offer a free 30-minute initial consultation to
-                        understand your needs.
+                        understand your needs and goals.
                       </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-gray-200">
                 <CardContent className="pt-6">
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-2">
-                        What are your office hours?
+                        Do you serve both US and Canadian clients?
                       </h3>
                       <p className="text-gray-600">
-                        We're open Monday-Friday 9AM-6PM, Saturday 10AM-4PM,
-                        with 24/7 emergency support.
+                        Absolutely! We proudly serve clients across both the
+                        United States and Canada with specialized knowledge of
+                        both regions.
                       </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-red-600 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Ready to Begin Your Success Story?
+            </h2>
+            <p className="text-xl mb-8 opacity-90">
+              Join hundreds of successful individuals who have achieved their
+              dreams with our guidance.
+            </p>
+            <Button
+              size="lg"
+              variant="secondary"
+              asChild
+              className="bg-white text-blue-600 hover:bg-gray-100"
+            >
+              <Link to="/">
+                Learn More About Us
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
