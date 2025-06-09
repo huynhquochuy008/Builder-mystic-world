@@ -25,69 +25,69 @@ import {
 const Index = () => {
   const services = [
     {
-      icon: <Globe className="h-8 w-8 text-primary" />,
-      title: "University Selection",
+      icon: <Globe className="h-8 w-8 text-blue-600" />,
+      title: "Global Services",
       description:
-        "Expert guidance to find the perfect university that matches your academic goals and budget.",
+        "Expert guidance to help you achieve your goals with comprehensive international support.",
     },
     {
-      icon: <FileText className="h-8 w-8 text-primary" />,
-      title: "Application Assistance",
+      icon: <FileText className="h-8 w-8 text-red-600" />,
+      title: "Documentation Help",
       description:
-        "Complete support with applications, essays, and documentation for your dream university.",
+        "Complete support with applications, paperwork, and documentation for your success.",
     },
     {
-      icon: <Users className="h-8 w-8 text-primary" />,
-      title: "Visa Guidance",
+      icon: <Users className="h-8 w-8 text-blue-600" />,
+      title: "Expert Guidance",
       description:
-        "Step-by-step visa application support to ensure smooth approval process.",
+        "Step-by-step support from our experienced team to ensure smooth progress.",
     },
     {
-      icon: <Award className="h-8 w-8 text-primary" />,
-      title: "Scholarship Help",
+      icon: <Award className="h-8 w-8 text-red-600" />,
+      title: "Success Support",
       description:
-        "Identify and apply for scholarships to make your education more affordable.",
+        "Identify and access opportunities to help you achieve your dreams.",
     },
   ];
 
   const testimonials = [
     {
       name: "Sarah Johnson",
-      role: "Master's Student at MIT",
+      role: "Success Story",
       content:
-        "StudyAbroad Pro made my dream of studying at MIT come true. Their guidance was invaluable throughout the entire process.",
+        "The team made my dreams come true. Their guidance was invaluable throughout the entire process.",
       avatar: "/placeholder.svg",
       rating: 5,
     },
     {
       name: "Michael Chen",
-      role: "PhD Student at Oxford",
+      role: "Achieved Goals",
       content:
-        "The visa guidance and scholarship assistance helped me secure funding for my PhD at Oxford. Highly recommended!",
+        "The support and assistance helped me reach my objectives. Highly recommended for anyone with big dreams!",
       avatar: "/placeholder.svg",
       rating: 5,
     },
     {
       name: "Emily Rodriguez",
-      role: "Undergraduate at Stanford",
+      role: "Dream Realized",
       content:
-        "From university selection to application essays, they supported me every step of the way. Now I'm studying at Stanford!",
+        "From planning to execution, they supported me every step of the way. Now I'm living my best life!",
       avatar: "/placeholder.svg",
       rating: 5,
     },
   ];
 
   const stats = [
-    { number: "500+", label: "Students Placed" },
-    { number: "50+", label: "Partner Universities" },
+    { number: "500+", label: "People Helped" },
+    { number: "50+", label: "Partner Organizations" },
     { number: "95%", label: "Success Rate" },
-    { number: "15+", label: "Countries" },
+    { number: "15+", label: "Countries Served" },
   ];
 
-  const countries = [
+  const locations = [
     "United States",
-    "United Kingdom",
     "Canada",
+    "United Kingdom",
     "Australia",
     "Germany",
     "France",
@@ -96,47 +96,78 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-20 lg:py-32">
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-20 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="mb-4">
+            <Badge
+              variant="secondary"
+              className="mb-4 bg-blue-100 text-blue-700 border-blue-200"
+            >
               <TrendingUp className="h-4 w-4 mr-2" />
-              #1 Study Abroad Consultant
+              #1 Trusted Partner
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               Your Gateway to
-              <span className="text-primary"> Global Education</span>
+              <span className="text-blue-600"> Success</span> and
+              <span className="text-red-600"> Achievement</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Expert guidance to help you study abroad at top universities
-              worldwide. From application to visa, we're with you every step of
-              the way.
+              Expert guidance to help you achieve your dreams and goals with
+              comprehensive support. From planning to execution, we're with you
+              every step of the way.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
+              <Button
+                size="lg"
+                asChild
+                className="bg-blue-600 hover:bg-blue-700"
+              >
                 <Link to="/contact">
                   Get Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/services">Explore Services</Link>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="border-red-600 text-red-600 hover:bg-red-50"
+              >
+                <Link to="/about">Learn About Us</Link>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 via-red-600 to-blue-600 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl lg:text-4xl font-bold mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-sm lg:text-base opacity-90">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Comprehensive Study Abroad Services
+              Comprehensive Services
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              From university selection to visa approval, we provide end-to-end
-              support for your international education journey.
+              From planning to execution, we provide end-to-end support for your
+              journey to success.
             </p>
           </div>
 
@@ -144,7 +175,7 @@ const Index = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="text-center hover:shadow-lg transition-shadow"
+                className="text-center hover:shadow-lg transition-shadow border-gray-200"
               >
                 <CardHeader>
                   <div className="mx-auto mb-4">{service.icon}</div>
@@ -161,27 +192,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Countries Section */}
-      <section className="py-20 bg-muted/50">
+      {/* Locations Section */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Study in Top Destinations
+              Global Reach
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We help students get into universities across the world's most
-              popular study destinations.
+              We help people achieve success across the world's most popular
+              destinations.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            {countries.map((country, index) => (
+            {locations.map((location, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-2 bg-white rounded-full px-6 py-3 shadow-sm"
+                className="flex items-center space-x-2 bg-white rounded-full px-6 py-3 shadow-sm border border-gray-200"
               >
-                <MapPin className="h-4 w-4 text-primary" />
-                <span className="font-medium">{country}</span>
+                <MapPin
+                  className={`h-4 w-4 ${index % 2 === 0 ? "text-blue-600" : "text-red-600"}`}
+                />
+                <span className="font-medium">{location}</span>
               </div>
             ))}
           </div>
@@ -189,15 +222,15 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Hear from our students who are now studying at their dream
-              universities around the world.
+              Hear from people who have achieved their dreams with our guidance
+              and support.
             </p>
           </div>
 
@@ -220,7 +253,7 @@ const Index = () => {
                         src={testimonial.avatar}
                         alt={testimonial.name}
                       />
-                      <AvatarFallback>
+                      <AvatarFallback className="bg-blue-100 text-blue-600">
                         {testimonial.name
                           .split(" ")
                           .map((n) => n[0])
@@ -242,45 +275,45 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-red-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose StudyAbroad Pro?
+                Why Choose Us?
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Expert Counselors</h3>
+                    <h3 className="font-semibold mb-2">Expert Team</h3>
                     <p className="text-gray-600">
-                      Our experienced counselors have helped hundreds of
-                      students achieve their study abroad dreams.
+                      Our experienced team has helped hundreds of people achieve
+                      their dreams and goals.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-2">
                       Personalized Guidance
                     </h3>
                     <p className="text-gray-600">
-                      Every student is unique. We provide tailored advice based
-                      on your specific goals and background.
+                      Every person is unique. We provide tailored advice based
+                      on your specific goals and situation.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-2">End-to-End Support</h3>
                     <p className="text-gray-600">
-                      From university selection to visa approval, we support you
+                      From initial planning to final success, we support you
                       throughout your entire journey.
                     </p>
                   </div>
@@ -288,34 +321,32 @@ const Index = () => {
               </div>
               <div className="space-y-6">
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-2">Proven Track Record</h3>
                     <p className="text-gray-600">
-                      95% success rate with students now studying at top
-                      universities worldwide.
+                      95% success rate with people now living their dreams and
+                      achieving their goals.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">
-                      Scholarship Assistance
-                    </h3>
+                    <h3 className="font-semibold mb-2">Ongoing Assistance</h3>
                     <p className="text-gray-600">
-                      We help identify and apply for scholarships to make your
-                      education more affordable.
+                      We help identify opportunities and resources to make your
+                      dreams more achievable.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Post-Arrival Support</h3>
+                    <h3 className="font-semibold mb-2">Continued Support</h3>
                     <p className="text-gray-600">
-                      Our support doesn't end with admission. We help with
-                      pre-departure and post-arrival guidance.
+                      Our support doesn't end with success. We provide ongoing
+                      guidance and assistance.
                     </p>
                   </div>
                 </div>
@@ -326,17 +357,22 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-red-600 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Ready to Start Your Study Abroad Journey?
+              Ready to Start Your Success Journey?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Get a free consultation with our expert counselors and take the
-              first step towards your international education.
+              Get a free consultation with our expert team and take the first
+              step towards achieving your dreams.
             </p>
-            <Button size="lg" variant="secondary" asChild>
+            <Button
+              size="lg"
+              variant="secondary"
+              asChild
+              className="bg-white text-blue-600 hover:bg-gray-100"
+            >
               <Link to="/contact">
                 Book Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
