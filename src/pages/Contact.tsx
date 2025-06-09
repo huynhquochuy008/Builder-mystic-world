@@ -10,13 +10,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   MapPin,
@@ -25,66 +18,40 @@ import {
   Clock,
   Send,
   MessageCircle,
-  Calendar,
-  Globe,
   CheckCircle,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const Contact = () => {
+function Contact() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    service: "",
     message: "",
     newsletter: false,
   });
-  const handleSubmit = async (e: React.FormEvent) => {
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("http://192.168.56.10:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    toast({
+      title: "Message Sent!",
+      description:
+        "Thank you for your inquiry. We'll get back to you within 24 hours.",
+      duration: 5000,
+    });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
-      }
-
-
-      toast({
-        title: "Message Sent!",
-        description:
-          "Thank you for your inquiry. We'll get back to you within 24 hours.",
-        duration: 5000,
-      });
-
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-        newsletter: false,
-      });
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast({
-        title: "Submission Failed",
-        description: "There was an issue submitting the form. Please try again.",
-        variant: "destructive",
-        duration: 5000,
-      });
-    }
+    // Reset form
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+      newsletter: false,
+    });
   };
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -96,8 +63,8 @@ const Contact = () => {
       icon: <MapPin className="h-6 w-6 text-primary" />,
       title: "Office Address",
       details: [
-        "123 Education Street",
-        "International District",
+        "123 Business Street",
+        "Suite 100",
         "City, State 12345",
         "Country",
       ],
@@ -115,9 +82,9 @@ const Contact = () => {
       icon: <Mail className="h-6 w-6 text-primary" />,
       title: "Email Addresses",
       details: [
-        "info@studyabroadpro.com",
-        "admissions@studyabroadpro.com",
-        "support@studyabroadpro.com",
+        "info@mywebsite.com",
+        "support@mywebsite.com",
+        "hello@mywebsite.com",
       ],
     },
     {
@@ -132,29 +99,6 @@ const Contact = () => {
     },
   ];
 
-  const faqs = [
-    {
-      question: "How long does the university application process take?",
-      answer:
-        "The application process typically takes 2-4 months, depending on the country and university requirements.",
-    },
-    {
-      question: "Do you charge for the initial consultation?",
-      answer:
-        "No, we offer a free 30-minute initial consultation to understand your goals and explain our services.",
-    },
-    {
-      question: "Can you help with scholarships and financial aid?",
-      answer:
-        "Yes, we provide comprehensive scholarship assistance and help identify funding opportunities for international students.",
-    },
-    {
-      question: "What is your success rate for student visa applications?",
-      answer:
-        "We maintain a 95% success rate for student visa applications across all countries we serve.",
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -165,13 +109,8 @@ const Contact = () => {
               Get in Touch
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-<<<<<<< HEAD
-              Ready to start your study abroad journey? Contact our expert
-              counselors for personalized guidance and support.
-=======
-              Ready to study in USA, Canada, or Australia? Contact our
-              specialized counselors for expert guidance and support.
->>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
+              Ready to start your journey? Contact us for personalized guidance
+              and support.
             </p>
           </div>
         </div>
@@ -246,66 +185,10 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="service">Service Interested In</Label>
-                    <Select
-                      onValueChange={(value) =>
-                        handleInputChange("service", value)
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a service" />
-                      </SelectTrigger>
-                      <SelectContent>
-<<<<<<< HEAD
-                        <SelectItem value="university-selection">
-                          University Selection
-                        </SelectItem>
-                        <SelectItem value="application-assistance">
-                          Application Assistance
-                        </SelectItem>
-                        <SelectItem value="visa-guidance">
-                          Visa Guidance
-                        </SelectItem>
-                        <SelectItem value="scholarship-help">
-                          Scholarship Help
-                        </SelectItem>
-                        <SelectItem value="test-preparation">
-                          Test Preparation
-=======
-                        <SelectItem value="usa-universities">
-                          USA University Selection
-                        </SelectItem>
-                        <SelectItem value="canada-universities">
-                          Canada University Selection
-                        </SelectItem>
-                        <SelectItem value="australia-universities">
-                          Australia University Selection
-                        </SelectItem>
-                        <SelectItem value="usa-visa">
-                          USA F-1 Visa Guidance
-                        </SelectItem>
-                        <SelectItem value="canada-visa">
-                          Canada Study Permit
-                        </SelectItem>
-                        <SelectItem value="australia-visa">
-                          Australia Student Visa
->>>>>>> 9483847aa463a050fc6375cce72136e26c6c018a
-                        </SelectItem>
-                        <SelectItem value="complete-package">
-                          Complete Package
-                        </SelectItem>
-                        <SelectItem value="other-choice">
-                          Others
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
                     <Label htmlFor="message">Message *</Label>
                     <Textarea
                       id="message"
-                      placeholder="Tell us about your study abroad goals..."
+                      placeholder="Tell us how we can help you..."
                       value={formData.message}
                       onChange={(e) =>
                         handleInputChange("message", e.target.value)
@@ -324,8 +207,7 @@ const Contact = () => {
                       }
                     />
                     <Label htmlFor="newsletter" className="text-sm">
-                      Subscribe to our newsletter for study abroad tips and
-                      updates
+                      Subscribe to our newsletter for updates and tips
                     </Label>
                   </div>
 
@@ -368,6 +250,30 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Quick Actions */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <MessageCircle className="h-5 w-5 text-primary" />
+                    <span>Quick Actions</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <Button variant="outline" className="w-full justify-start">
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Live Chat Support
+                  </Button>
+                  <Button variant="outline" className="w-full justify-start">
+                    <Phone className="mr-2 h-4 w-4" />
+                    Schedule a Call
+                  </Button>
+                  <Button variant="outline" className="w-full justify-start">
+                    <Mail className="mr-2 h-4 w-4" />
+                    Email Support
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
@@ -382,30 +288,65 @@ const Contact = () => {
                 Frequently Asked Questions
               </h2>
               <p className="text-xl text-gray-600">
-                Quick answers to common questions about our services.
+                Quick answers to common questions.
               </p>
             </div>
 
             <div className="space-y-6">
-              {faqs.map((faq, index) => (
-                <Card key={index}>
-                  <CardContent className="pt-6">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="font-semibold mb-2">{faq.question}</h3>
-                        <p className="text-gray-600">{faq.answer}</p>
-                      </div>
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-2">
+                        How quickly do you respond to inquiries?
+                      </h3>
+                      <p className="text-gray-600">
+                        We typically respond to all inquiries within 24 hours
+                        during business days.
+                      </p>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-2">
+                        Do you offer free consultations?
+                      </h3>
+                      <p className="text-gray-600">
+                        Yes, we offer a free 30-minute initial consultation to
+                        understand your needs.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-2">
+                        What are your office hours?
+                      </h3>
+                      <p className="text-gray-600">
+                        We're open Monday-Friday 9AM-6PM, Saturday 10AM-4PM,
+                        with 24/7 emergency support.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
     </div>
   );
-};
+}
 
 export default Contact;
