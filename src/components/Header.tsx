@@ -11,11 +11,18 @@ const Header = () => {
 
   const navigation = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Blog", href: "/blog" },
-    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
+
+  const handleNavigationClick = () => {
+    // Force scroll to top when navigation is clicked
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+  };
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -38,6 +45,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
+                onClick={handleNavigationClick}
                 className={cn(
                   "text-sm font-medium transition-colors px-3 py-2 rounded-md",
                   isActive(item.href)
@@ -85,7 +93,10 @@ const Header = () => {
                     <Link
                       key={item.name}
                       to={item.href}
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => {
+                        setIsOpen(false);
+                        handleNavigationClick();
+                      }}
                       className={cn(
                         "text-base font-medium transition-colors px-3 py-2 rounded-md",
                         isActive(item.href)
