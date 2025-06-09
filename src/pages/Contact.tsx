@@ -38,33 +38,53 @@ const Contact = () => {
     lastName: "",
     email: "",
     phone: "",
-    country: "",
     service: "",
     message: "",
     newsletter: false,
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    toast({
-      title: "Message Sent!",
-      description:
-        "Thank you for your inquiry. We'll get back to you within 24 hours.",
-      duration: 5000,
-    });
+    try {
+      const response = await fetch("http://192.168.56.10:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      country: "",
-      service: "",
-      message: "",
-      newsletter: false,
-    });
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+
+      toast({
+        title: "Message Sent!",
+        description:
+          "Thank you for your inquiry. We'll get back to you within 24 hours.",
+        duration: 5000,
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+        newsletter: false,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an issue submitting the form. Please try again.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    }
   };
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -221,29 +241,6 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="country">Country of Residence</Label>
-                    <Select
-                      onValueChange={(value) =>
-                        handleInputChange("country", value)
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select your country" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="india">India</SelectItem>
-                        <SelectItem value="china">China</SelectItem>
-                        <SelectItem value="nigeria">Nigeria</SelectItem>
-                        <SelectItem value="pakistan">Pakistan</SelectItem>
-                        <SelectItem value="bangladesh">Bangladesh</SelectItem>
-                        <SelectItem value="philippines">Philippines</SelectItem>
-                        <SelectItem value="vietnam">Vietnam</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
                     <Label htmlFor="service">Service Interested In</Label>
                     <Select
                       onValueChange={(value) =>
@@ -271,6 +268,9 @@ const Contact = () => {
                         </SelectItem>
                         <SelectItem value="complete-package">
                           Complete Package
+                        </SelectItem>
+                        <SelectItem value="other-choice">
+                          Others
                         </SelectItem>
                       </SelectContent>
                     </Select>
@@ -343,30 +343,6 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Quick Actions */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <MessageCircle className="h-5 w-5 text-primary" />
-                    <span>Quick Actions</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <Button variant="outline" className="w-full justify-start">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book Free Consultation
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start">
-                    <MessageCircle className="mr-2 h-4 w-4" />
-                    Live Chat Support
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start">
-                    <Globe className="mr-2 h-4 w-4" />
-                    Virtual Office Tour
-                  </Button>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
@@ -399,33 +375,6 @@ const Contact = () => {
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Visit Our Office
-            </h2>
-            <p className="text-xl text-gray-600">
-              Located in the heart of the education district, easily accessible
-              by public transport.
-            </p>
-          </div>
-
-          <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">
-                Interactive map would be embedded here
-              </p>
-              <p className="text-sm text-gray-500 mt-2">
-                123 Education Street, International District
-              </p>
             </div>
           </div>
         </div>
