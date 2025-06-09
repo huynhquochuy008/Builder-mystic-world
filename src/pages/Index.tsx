@@ -238,8 +238,6 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow border-blue-200">
               <CardContent className="pt-8 pb-6">
                 <div className="flex justify-center mb-4">
                   <Flag country="AU" size="xl" />
