@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Flag from "@/components/Flag";
 import {
   GraduationCap,
   Globe,
@@ -85,12 +86,12 @@ const Index = () => {
   ];
 
   const locations = [
-    "United States",
-    "Canada",
-    "United Kingdom",
-    "Australia",
-    "Germany",
-    "France",
+    { name: "United States", code: "US", color: "blue" },
+    { name: "Canada", code: "CA", color: "red" },
+    { name: "Australia", code: "AU", color: "blue" },
+    { name: "United Kingdom", code: "GB", color: "red" },
+    { name: "Germany", code: "DE", color: "blue" },
+    { name: "France", code: "FR", color: "red" },
   ];
 
   return (
@@ -192,7 +193,71 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Locations Section */}
+      {/* Featured Countries Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-red-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Our Primary Focus Countries
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Specialized expertise in helping you succeed in these three major
+              destinations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
+            <Card className="text-center hover:shadow-lg transition-shadow border-blue-200">
+              <CardContent className="pt-8 pb-6">
+          <div className="flex flex-wrap justify-center gap-6">
+            {locations.map((location, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center space-y-3 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+              >
+                <Flag country={location.code as any} size="lg" />
+                <span className={`font-medium ${location.color === 'blue' ? 'text-blue-600' : 'text-red-600'}`}>
+                  {location.name}
+                </span>
+                <MapPin className={`h-4 w-4 ${location.color === 'blue' ? 'text-blue-600' : 'text-red-600'}`} />
+              </div>
+            ))}
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow border-red-200">
+              <CardContent className="pt-8 pb-6">
+                <div className="flex justify-center mb-4">
+                  <Flag country="CA" size="xl" />
+                </div>
+                <h3 className="text-2xl font-bold text-red-600 mb-2">Canada</h3>
+                <p className="text-gray-600 mb-4">Welcoming nation known for quality education and excellent quality of life.</p>
+                <div className="flex justify-center space-x-2">
+                  <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                  <div className="w-3 h-3 bg-white border-2 border-red-600 rounded-full"></div>
+                  <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow border-blue-200">
+              <CardContent className="pt-8 pb-6">
+                <div className="flex justify-center mb-4">
+                  <Flag country="AU" size="xl" />
+                </div>
+                <h3 className="text-2xl font-bold text-blue-600 mb-2">Australia</h3>
+                <p className="text-gray-600 mb-4">Dynamic country offering excellent education and vibrant multicultural environment.</p>
+                <div className="flex justify-center space-x-2">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Reach Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -200,21 +265,26 @@ const Index = () => {
               Global Reach
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We help people achieve success across the world's most popular
-              destinations.
+              We also help people achieve success across other popular
+              international destinations.
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-6">
             {locations.map((location, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-2 bg-white rounded-full px-6 py-3 shadow-sm border border-gray-200"
+                className="flex flex-col items-center space-y-3 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
               >
+                <div className="text-4xl">{location.flag}</div>
+                <span
+                  className={`font-medium ${location.color === "blue" ? "text-blue-600" : "text-red-600"}`}
+                >
+                  {location.name}
+                </span>
                 <MapPin
-                  className={`h-4 w-4 ${index % 2 === 0 ? "text-blue-600" : "text-red-600"}`}
+                  className={`h-4 w-4 ${location.color === "blue" ? "text-blue-600" : "text-red-600"}`}
                 />
-                <span className="font-medium">{location}</span>
               </div>
             ))}
           </div>
