@@ -23,16 +23,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Send,
-  MessageCircle,
-  CheckCircle,
-} from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 function Contact() {
   const { toast } = useToast();
