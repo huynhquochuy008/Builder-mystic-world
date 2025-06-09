@@ -209,19 +209,22 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
             <Card className="text-center hover:shadow-lg transition-shadow border-blue-200">
               <CardContent className="pt-8 pb-6">
-          <div className="flex flex-wrap justify-center gap-6">
-            {locations.map((location, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center space-y-3 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
-              >
-                <Flag country={location.code as any} size="lg" />
-                <span className={`font-medium ${location.color === 'blue' ? 'text-blue-600' : 'text-red-600'}`}>
-                  {location.name}
-                </span>
-                <MapPin className={`h-4 w-4 ${location.color === 'blue' ? 'text-blue-600' : 'text-red-600'}`} />
-              </div>
-            ))}
+                <div className="flex justify-center mb-4">
+                  <Flag country="US" size="xl" />
+                </div>
+                <h3 className="text-2xl font-bold text-blue-600 mb-2">
+                  United States
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Land of opportunities with world-class universities and
+                  diverse career paths.
+                </p>
+                <div className="flex justify-center space-x-2">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                </div>
+              </CardContent>
             </Card>
 
             <Card className="text-center hover:shadow-lg transition-shadow border-red-200">
@@ -230,7 +233,10 @@ const Index = () => {
                   <Flag country="CA" size="xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-red-600 mb-2">Canada</h3>
-                <p className="text-gray-600 mb-4">Welcoming nation known for quality education and excellent quality of life.</p>
+                <p className="text-gray-600 mb-4">
+                  Welcoming nation known for quality education and excellent
+                  quality of life.
+                </p>
                 <div className="flex justify-center space-x-2">
                   <div className="w-3 h-3 bg-red-600 rounded-full"></div>
                   <div className="w-3 h-3 bg-white border-2 border-red-600 rounded-full"></div>
@@ -238,12 +244,19 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow border-blue-200">
               <CardContent className="pt-8 pb-6">
                 <div className="flex justify-center mb-4">
                   <Flag country="AU" size="xl" />
                 </div>
-                <h3 className="text-2xl font-bold text-blue-600 mb-2">Australia</h3>
-                <p className="text-gray-600 mb-4">Dynamic country offering excellent education and vibrant multicultural environment.</p>
+                <h3 className="text-2xl font-bold text-blue-600 mb-2">
+                  Australia
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Dynamic country offering excellent education and vibrant
+                  multicultural environment.
+                </p>
                 <div className="flex justify-center space-x-2">
                   <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
                   <div className="w-3 h-3 bg-red-600 rounded-full"></div>
@@ -274,7 +287,7 @@ const Index = () => {
                 key={index}
                 className="flex flex-col items-center space-y-3 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
               >
-                <div className="text-4xl">{location.flag}</div>
+                <Flag country={location.code as any} size="lg" />
                 <span
                   className={`font-medium ${location.color === "blue" ? "text-blue-600" : "text-red-600"}`}
                 >
