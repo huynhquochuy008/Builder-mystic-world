@@ -1,0 +1,47 @@
+export const packages = [
+    {
+      name: "Starter Package",
+      price: "$499",
+      description: "Essential support for motivated individuals",
+      features: [
+        "Country selection guidance",
+        "Basic consultation (3 sessions)",
+        "Application review",
+        "Email support",
+        "Resource library access",
+      ],
+      popular: false,
+      color: "blue",
+    },
+    {
+      name: "Success Package",
+      price: "$999",
+      description: "Comprehensive support for serious achievers",
+      features: [
+        "Everything in Starter Package",
+        "Extended consultation (6 sessions)",
+        "Document preparation assistance",
+        "Interview preparation",
+        "Priority support",
+        "Success planning workshop",
+      ],
+      popular: true,
+      color: "red",
+    },
+    {
+      name: "VIP Package",
+      price: "$1,999",
+      description: "White-glove service with dedicated specialist",
+      features: [
+        "Everything in Success Package",
+        "Unlimited consultations",
+        "Dedicated specialist",
+        "24/7 priority support",
+        "Relocation assistance",
+        "6-month post-success support",
+        "Alumni network access",
+      ],
+      popular: false,
+      color: "blue",
+    },
+  ];
