@@ -1,16 +1,23 @@
-FROM node:22-alpine AS builder
+# Step 1: Build
+FROM node:22 AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
 
+# Step 2: Serve with static server
+FROM node:22 AS runner
 WORKDIR /app
 
-COPY package.json ./
+# Install a static server like 'serve'
+RUN npm install -g serve
 
-RUN npm install
+# Copy the built output from the previous step
+COPY --from=builder /app/dist ./dist
 
-COPY tsconfig.json ./
-COPY vite.config.* ./
+# Expose port
+EXPOSE 8080
 
-COPY . .
-
-# Install depencencies
-
-CMD ["npm", "run", "dev"]
+# Serve the static files
+CMD ["serve", "-s", "dist", "-l", "8080"]
