@@ -6,7 +6,7 @@ import path from "path";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    allowedHosts: "true",
+    allowedHosts: "all",
     port: 8080,
   },
   plugins: [react()],
