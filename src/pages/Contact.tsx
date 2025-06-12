@@ -36,27 +36,51 @@ function Contact() {
     newsletter: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    toast({
-      title: "Message Sent!",
-      description:
-        "Thank you for your inquiry. We'll get back to you within 24 hours.",
-      duration: 5000,
-    });
+    try {
+      const response = await fetch("http://192.168.56.10:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      message: "",
-      newsletter: false,
-    });
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+
+      toast({
+        title: "Message Sent!",
+        description:
+          "Thank you for your inquiry. We'll get back to you within 24 hours.",
+        duration: 5000,
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+        newsletter: false,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an issue submitting the form. Please try again.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    }
   };
-
+  
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
