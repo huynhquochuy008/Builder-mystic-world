@@ -40,7 +40,7 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://fastfactduhoc.railway.internal:5000/api/contact", {
+      const response = await fetch("https://fastfactduhoc.railway.internal/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
