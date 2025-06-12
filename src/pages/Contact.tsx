@@ -35,12 +35,13 @@ function Contact() {
     message: "",
     newsletter: false,
   });
+    const api = import.meta.env.VITE_API_BASE_URL;
 
     const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://fastfactduhoc.railway.internal/api/contact", {
+      const response = await fetch(`${api}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +81,7 @@ function Contact() {
       });
     }
   };
-  
+
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
