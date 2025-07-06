@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Home } from "lucide-react";
@@ -7,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -24,7 +27,7 @@ const Header = () => {
     }, 0);
   };
 
-  const isActive = (href: string) => location.pathname === href;
+  const isActive = (href: string) => pathname === href;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm border-red-200">
@@ -32,7 +35,7 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
-            to="/"
+            href="/"
             className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
           >
             <Home className="h-8 w-8 text-blue-600" />
@@ -44,7 +47,7 @@ const Header = () => {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 onClick={handleNavigationClick}
                 className={cn(
                   "text-sm font-medium transition-colors px-3 py-2 rounded-md",
@@ -61,7 +64,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center">
             <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
-              <Link to="/contact">Get In Touch</Link>
+              <Link href="/contact">Get In Touch</Link>
             </Button>
           </div>
 
@@ -77,7 +80,7 @@ const Header = () => {
               <div className="flex flex-col space-y-6 mt-6">
                 {/* Mobile Logo */}
                 <Link
-                  to="/"
+                  href="/"
                   className="flex items-center space-x-2"
                   onClick={() => setIsOpen(false)}
                 >
@@ -92,7 +95,7 @@ const Header = () => {
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
-                      to={item.href}
+                      href={item.href}
                       onClick={() => {
                         setIsOpen(false);
                         handleNavigationClick();
@@ -114,7 +117,7 @@ const Header = () => {
                   asChild
                   className="w-full bg-red-600 hover:bg-red-700 text-white"
                 >
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>
                     Get In Touch
                   </Link>
                 </Button>
