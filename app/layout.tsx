@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientProviders from "./providers";
-import "@/App.css";
+import "@/src/App.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
