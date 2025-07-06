@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   Home,
   Mail,
@@ -59,19 +59,19 @@ const Footer = () => {
             <h3 className="font-semibold text-gray-900">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
               <Link
-                to="/"
+                href="/"
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
                 Home
               </Link>
               <Link
-                to="/about"
+                href="/about"
                 className="text-sm text-gray-600 hover:text-red-600 transition-colors"
               >
                 About Us
               </Link>
               <Link
-                to="/contact"
+                href="/contact"
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
                 Contact
