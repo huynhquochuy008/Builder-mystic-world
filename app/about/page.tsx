@@ -1,8 +1,9 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   Target,
   Eye,
@@ -17,7 +18,13 @@ import {
   Mail,
 } from "lucide-react";
 
-function About() {
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about our story, mission, and values. We are passionate about helping people achieve their dreams with expert guidance and personalized support.",
+};
+
+export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -285,7 +292,7 @@ function About() {
               asChild
               className="bg-white text-blue-600 hover:bg-gray-100"
             >
-              <Link to="/contact">
+              <Link href="/contact">
                 Get In Touch
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -296,5 +303,3 @@ function About() {
     </div>
   );
 }
-
-export default About;

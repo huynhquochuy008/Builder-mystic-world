@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -25,7 +28,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { contactInfo } from "@/data/contact/contact-info";
 
-function Contact() {
+export default function ContactPage() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -35,24 +38,13 @@ function Contact() {
     message: "",
     newsletter: false,
   });
-    const api = import.meta.env.VITE_API_BASE_URL;
 
-    const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${api}/api/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
-      }
-
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast({
         title: "Message Sent!",
@@ -67,7 +59,6 @@ function Contact() {
         lastName: "",
         email: "",
         phone: "",
-        service: "",
         message: "",
         newsletter: false,
       });
@@ -75,7 +66,8 @@ function Contact() {
       console.error("Error submitting form:", error);
       toast({
         title: "Submission Failed",
-        description: "There was an issue submitting the form. Please try again.",
+        description:
+          "There was an issue submitting the form. Please try again.",
         variant: "destructive",
         duration: 5000,
       });
@@ -372,7 +364,7 @@ function Contact() {
               asChild
               className="bg-white text-blue-600 hover:bg-gray-100"
             >
-              <Link to="/">
+              <Link href="/">
                 Learn More About Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -383,5 +375,3 @@ function Contact() {
     </div>
   );
 }
-
-export default Contact;

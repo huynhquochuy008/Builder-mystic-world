@@ -1,12 +1,15 @@
+"use client";
+
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname, useSearchParams } from "next/navigation";
 
 function ScrollToTop() {
-  const location = useLocation();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     // Log for debugging
-    console.log("ScrollToTop: Route changed to", location.pathname);
+    console.log("ScrollToTop: Route changed to", pathname);
 
     // Force immediate scroll to top
     window.scrollTo(0, 0);
@@ -25,7 +28,7 @@ function ScrollToTop() {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 100);
-  }, [location.pathname, location.search, location.hash]);
+  }, [pathname, searchParams]);
 
   return null;
 }

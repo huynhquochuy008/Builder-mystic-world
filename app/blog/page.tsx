@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,7 +23,13 @@ import {
   Share2,
 } from "lucide-react";
 
-function Blog() {
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Expert insights, success stories, and practical tips for achieving your dreams in USA, Canada, and Australia.",
+};
+
+export default function BlogPage() {
   const featuredPost = {
     id: 1,
     title: "Complete Guide to Success in America, Canada, and Australia",
@@ -205,7 +212,7 @@ function Blog() {
                   </div>
                 </div>
                 <Button asChild className="bg-blue-600 hover:bg-blue-700">
-                  <Link to={`/blog/${featuredPost.id}`}>
+                  <Link href={`/blog/${featuredPost.id}`}>
                     Read Full Article
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -307,7 +314,7 @@ function Blog() {
                   </div>
                   <div className="flex items-center justify-between">
                     <Button variant="outline" size="sm" asChild>
-                      <Link to={`/blog/${post.id}`}>Read More</Link>
+                      <Link href={`/blog/${post.id}`}>Read More</Link>
                     </Button>
                     <div className="flex items-center space-x-2">
                       <Button variant="ghost" size="sm">
@@ -355,5 +362,3 @@ function Blog() {
     </div>
   );
 }
-
-export default Blog;

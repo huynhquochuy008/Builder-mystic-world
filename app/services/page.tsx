@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { countries } from "@/data/services/countries";
 import { packages } from "@/data/services/packages";
 import { services } from "@/data/services/services";
@@ -27,7 +28,13 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-function Services() {
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Expert services to help you achieve success in USA, Canada, and Australia. From planning to execution, we support your entire journey.",
+};
+
+export default function ServicesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -156,7 +163,7 @@ function Services() {
                     variant={service.popular ? "default" : "outline"}
                     asChild
                   >
-                    <Link to="/contact">Learn More</Link>
+                    <Link href="/contact">Learn More</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -216,7 +223,7 @@ function Services() {
                     className={`w-full ${pkg.color === "blue" ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 hover:bg-red-700"}`}
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link href="/contact">
                       Get Started
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
@@ -303,7 +310,7 @@ function Services() {
               asChild
               className="bg-white text-blue-600 hover:bg-gray-100"
             >
-              <Link to="/contact">
+              <Link href="/contact">
                 Book Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -314,5 +321,3 @@ function Services() {
     </div>
   );
 }
-
-export default Services;
